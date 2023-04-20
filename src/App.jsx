@@ -1,7 +1,12 @@
-import './index.css';
+import Header from './components/layout/Header';
+import './index.scss';
 
 function App() {
-  return <div className='bg-red-500'>Hello world</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;

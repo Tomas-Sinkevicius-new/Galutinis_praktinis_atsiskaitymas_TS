@@ -21,6 +21,17 @@
 3. susikurti Routes ten kur bus generuojami koponentai.
 4. Navigacijai naudojam Link ir NavLink komponentus.
 
-## tailwind.css
+## sass css
 
-1. `npm install tailwindcss postcss autoprefixer --save-dev`
+1. `npm install sass`
+
+## firebase
+
+1. `npm install firebase`
+2. sukuriam .env faila sukonfiguruojam
+3. tada idedam i git ignore
+4. sutvarkom firebase.js failą
+
+## toast install
+
+1. `npm i react-toastify`
