@@ -35,3 +35,8 @@
 ## toast install
 
 1. `npm install react-hot-toast`
+
+## formoms ir validacijai naudosim YUP ir FORMIK
+
+1. `npm install formik yup`
+2. yup importas `import * as Yup from 'yup';` kad nepamirst

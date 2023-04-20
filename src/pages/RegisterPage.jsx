@@ -4,8 +4,8 @@ import { auth } from '../firebase/firebase';
 import { toast } from 'react-hot-toast';
 import RegisterForm from '../components/auth/RegisterForm';
 
-function RegisterPage({ email, password }) {
-  function register() {
+function RegisterPage() {
+  function register({ email, password }) {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -17,6 +17,7 @@ function RegisterPage({ email, password }) {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log('errorCode ===', errorCode);
         console.log('errorMessage ===', errorMessage);
         toast.error('Something wrong...');
         // ..

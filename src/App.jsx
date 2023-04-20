@@ -1,4 +1,4 @@
-import './index.scss';
+import './reset.scss';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/layout/Header';
 import { Toaster } from 'react-hot-toast';
