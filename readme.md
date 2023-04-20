@@ -6,3 +6,17 @@
    port: 3000,
    },
 4. užbaigiam su `npm install react react-dom react-router-dom @vitejs/plugin-react-refresh`
+
+## eslint install
+
+1. `npm install vite-plugin-eslint eslint eslint-config-react-app --save-dev`
+2. .eslintrc > {"extends": ["react-app"]}
+3. vite.config.js >> import eslint from 'vite-plugin-eslint';
+4. vite.config.js >> plugins: [react(), eslint()],
+
+## router-dom
+
+1. `npm i react-router-dom`
+2. prideti BrowserRouter i main.jsx import { BrowserRouter } from 'react-router-dom';
+3. susikurti Routes ten kur bus generuojami koponentai.
+4. Navigacijai naudojam Link ir NavLink komponentus.
