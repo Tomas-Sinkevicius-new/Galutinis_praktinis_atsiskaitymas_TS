@@ -1,0 +1,35 @@
+header {
+  background: #e43071;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: 4rem;
+    color: #ffffff;
+    display: inline-block;
+    padding: 1.2rem 1.6rem;
+    text-decoration: none;
+  }
+
+  .navBar {
+    padding: 1.2rem 1.6rem;
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .navBar.active {
+    text-decoration: underline;
+  }
+  .navBar:hover {
+    transition: all 0.2s;
+    background-color: #ffffff;
+    color: #e43071;
+  }
+}
+span {
+  font-size: 4rem;
+  color: #ffc1d8;
+}

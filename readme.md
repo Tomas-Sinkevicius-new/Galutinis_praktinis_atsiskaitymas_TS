@@ -34,4 +34,4 @@
 
 ## toast install
 
-1. `npm i react-toastify`
+1. `npm install react-hot-toast`
