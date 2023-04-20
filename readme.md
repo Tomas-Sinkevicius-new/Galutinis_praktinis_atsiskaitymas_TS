@@ -20,3 +20,7 @@
 2. prideti BrowserRouter i main.jsx import { BrowserRouter } from 'react-router-dom';
 3. susikurti Routes ten kur bus generuojami koponentai.
 4. Navigacijai naudojam Link ir NavLink komponentus.
+
+## tailwind.css
+
+1. `npm install tailwindcss postcss autoprefixer --save-dev`
