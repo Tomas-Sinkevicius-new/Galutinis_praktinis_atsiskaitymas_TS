@@ -14,16 +14,29 @@ function Header() {
           Fin<span>al</span>
         </Link>
         <nav>
-          <NavLink className='navBar' to={'/login'}>
-            Login
-          </NavLink>
-          <NavLink className='navBar' to={'/register'}>
-            Register
-          </NavLink>
+          {!isLoggedIn && (
+            <>
+              <NavLink className='navBar' to={'/login'}>
+                Login
+              </NavLink>
+              <NavLink className='navBar' to={'/register'}>
+                Register
+              </NavLink>
+            </>
+          )}
+
           {isLoggedIn && (
-            <NavLink className='btn' to={'/login'}>
-              <Logout />
-            </NavLink>
+            <>
+              <NavLink className='navBar' to={'/shops'}>
+                Shop
+              </NavLink>
+              <NavLink className='navBar' to={'/shops/new'}>
+                AddShop
+              </NavLink>
+              <NavLink className='btn' to={'/login'}>
+                <Logout />
+              </NavLink>
+            </>
           )}
         </nav>
       </div>

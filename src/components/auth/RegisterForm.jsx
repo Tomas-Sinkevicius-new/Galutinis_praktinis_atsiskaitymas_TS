@@ -61,7 +61,7 @@ function RegisterForm({ onRegister }) {
             <div className='invisible'> invisible</div>
           )}
         </div>
-        <button className='btn' type='submit'>
+        <button className='btnForm' type='submit'>
           Register
         </button>
       </form>

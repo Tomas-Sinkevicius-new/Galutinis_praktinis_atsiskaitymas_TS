@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import * as Yup from 'yup';
 import './loginFormRegister.scss';
 
-function LoginForm({ onLogin, onLoginWithGoogle, onLogininWithFB }) {
+function LoginForm({ onLogin, onLoginWithGoogle }) {
   const formik = useFormik({
     initialValues: {
       email: 'test@test.lt',
@@ -28,11 +28,6 @@ function LoginForm({ onLogin, onLoginWithGoogle, onLogininWithFB }) {
         <div>
           <button onClick={onLoginWithGoogle} className='google'>
             <i className='fa fa-google' aria-hidden='true'></i> Google
-          </button>
-        </div>
-        <div>
-          <button onClick={onLogininWithFB} className='facebook'>
-            <i className='fa fa-facebook' aria-hidden='true'></i> Facebook
           </button>
         </div>
       </div>
@@ -74,7 +69,7 @@ function LoginForm({ onLogin, onLoginWithGoogle, onLogininWithFB }) {
             <div className='invisible'> invisible</div>
           )}
         </div>
-        <button className='btn' type='submit'>
+        <button className='btnForm' type='submit'>
           Sign in
         </button>
         <p className='register'>
