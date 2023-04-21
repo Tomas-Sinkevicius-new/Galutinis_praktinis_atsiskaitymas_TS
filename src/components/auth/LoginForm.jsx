@@ -1,8 +1,10 @@
 import { useFormik } from 'formik';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import * as Yup from 'yup';
+import './loginFormRegister.scss';
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, onLoginWithGoogle, onLogininWithFB }) {
   const formik = useFormik({
     initialValues: {
       email: 'test@test.lt',
@@ -20,11 +22,28 @@ function LoginForm({ onLogin }) {
     },
   });
   return (
-    <div>
+    <div className='form'>
+      <h2 className='h2'>Sign In</h2>
+      <div className='social'>
+        <div>
+          <button onClick={onLoginWithGoogle} className='google'>
+            <i className='fa fa-google' aria-hidden='true'></i> Google
+          </button>
+        </div>
+        <div>
+          <button onClick={onLogininWithFB} className='facebook'>
+            <i className='fa fa-facebook' aria-hidden='true'></i> Facebook
+          </button>
+        </div>
+      </div>
+
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor='email'>Email:</label>
+          <label className='label' htmlFor='email'>
+            Email:
+          </label>
           <input
+            className='input'
             type='text'
             name='email'
             value={formik.values.email}
@@ -32,12 +51,17 @@ function LoginForm({ onLogin }) {
             onBlur={formik.handleBlur}
           />
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
-          ) : null}
+            <div className='error'>{formik.errors.email}</div>
+          ) : (
+            <div className='invisible'> invisible</div>
+          )}
         </div>
         <div>
-          <label htmlFor='password'>Password:</label>
+          <label className='label' htmlFor='password'>
+            Password:
+          </label>
           <input
+            className='input'
             type='password'
             name='password'
             value={formik.values.password}
@@ -45,10 +69,17 @@ function LoginForm({ onLogin }) {
             onBlur={formik.handleBlur}
           />
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
-          ) : null}
+            <div className='error'>{formik.errors.password}</div>
+          ) : (
+            <div className='invisible'> invisible</div>
+          )}
         </div>
-        <button type='submit'>Submit</button>
+        <button className='btn' type='submit'>
+          Sign in
+        </button>
+        <p className='register'>
+          Still not register? <NavLink to={'/register'}>Clike here</NavLink>{' '}
+        </p>
       </form>
     </div>
   );

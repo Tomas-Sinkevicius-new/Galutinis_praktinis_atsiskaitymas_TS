@@ -1,8 +1,15 @@
 header {
-  background: #e43071;
-  padding: 0.2rem;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(215, 19, 84),
+    #ea777b,
+    rgb(215, 19, 84)
+  );
 
-  .container {
+  padding: 0.2rem;
+  width: 100%;
+
+  .containerHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,4 +40,7 @@ header {
 span {
   font-size: 4rem;
   color: #ffc1d8;
+}
+button {
+  margin: 20px;
 }

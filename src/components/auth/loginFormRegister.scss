@@ -1,0 +1,105 @@
+.form {
+  background: linear-gradient(
+    to bottom,
+    rgba(215, 19, 84, 0.8),
+    #ea777b,
+    rgba(215, 19, 84, 0.8)
+  );
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 5rem;
+}
+
+.h2 {
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: #e9c5c7;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #f6eaea;
+  color: #ea777b;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+.bt:hover {
+  background-color: #ea777b;
+  color: white;
+}
+
+.register {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.register a {
+  color: #e29194;
+  text-decoration: none;
+}
+
+.register a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.error {
+  color: #e7e73a;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.invisible {
+  color: transparent;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.social {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin: 0;
+}
+
+.social button {
+  gap: 20px;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: #f6eaea;
+  color: #ea777b;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+.social button:hover {
+  background-color: #ea777b;
+  color: white;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import './loginFormRegister.scss';
 
 function RegisterForm({ onRegister }) {
   const formik = useFormik({
@@ -21,11 +22,15 @@ function RegisterForm({ onRegister }) {
   });
 
   return (
-    <div>
+    <div className='form'>
+      <h2 className='h2'>Register:</h2>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor='email'>Email:</label>
+          <label className='label' htmlFor='email'>
+            Email:
+          </label>
           <input
+            className='input'
             type='text'
             name='email'
             value={formik.values.email}
@@ -33,12 +38,17 @@ function RegisterForm({ onRegister }) {
             onBlur={formik.handleBlur}
           />
           {formik.touched.email && formik.errors.email ? (
-            <div>{formik.errors.email}</div>
-          ) : null}
+            <div className='error'>{formik.errors.email}</div>
+          ) : (
+            <div className='invisible'> invisible</div>
+          )}
         </div>
         <div>
-          <label htmlFor='password'>Password:</label>
+          <label className='label' htmlFor='password'>
+            Password:
+          </label>
           <input
+            className='input'
             type='password'
             name='password'
             value={formik.values.password}
@@ -46,10 +56,14 @@ function RegisterForm({ onRegister }) {
             onBlur={formik.handleBlur}
           />
           {formik.touched.password && formik.errors.password ? (
-            <div>{formik.errors.password}</div>
-          ) : null}
+            <div className='error'>{formik.errors.password}</div>
+          ) : (
+            <div className='invisible'> invisible</div>
+          )}
         </div>
-        <button type='submit'>Register</button>
+        <button className='btn' type='submit'>
+          Register
+        </button>
       </form>
     </div>
   );

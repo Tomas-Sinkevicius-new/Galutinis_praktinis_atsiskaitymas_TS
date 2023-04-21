@@ -8,15 +8,12 @@ function Header() {
   const { isLoggedIn } = useAuthCtx();
 
   return (
-    <header>
-      <div className='container'>
+    <header className='header'>
+      <div className='containerHeader'>
         <Link className='logo' to={'/'}>
           Fin<span>al</span>
         </Link>
         <nav>
-          <NavLink className='navBar' to={'/'}>
-            Home
-          </NavLink>
           <NavLink className='navBar' to={'/login'}>
             Login
           </NavLink>
@@ -24,7 +21,7 @@ function Header() {
             Register
           </NavLink>
           {isLoggedIn && (
-            <NavLink className='navBar' to={'/login'}>
+            <NavLink className='btn' to={'/login'}>
               <Logout />
             </NavLink>
           )}

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function ShopPage() {
-  return <div>ShopPage</div>;
+  const [shopArr, setshopArr] = useState([]);
+
+  //paimam shop item is FireBase
+
+  return <div className='container'>ShopPage</div>;
 }
 
 export default ShopPage;
