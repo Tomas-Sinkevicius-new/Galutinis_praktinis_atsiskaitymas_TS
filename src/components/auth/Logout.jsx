@@ -1,7 +1,28 @@
 import React from 'react';
+import { useAuthCtx } from '../../store/AuthProvider';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
+import { toast } from 'react-hot-toast';
 
 function Logout() {
-  return <div>Logout</div>;
+  const { isLoggedIn, logout } = useAuthCtx();
+
+  function logoutFN() {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        logout();
+        toast('Good Job! BYE!', {
+          icon: '😭',
+        });
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+    // toast.error('Something went wrong...');
+  }
+
+  return !isLoggedIn ? null : <button onClick={logoutFN}>Logout</button>;
 }
 
 export default Logout;

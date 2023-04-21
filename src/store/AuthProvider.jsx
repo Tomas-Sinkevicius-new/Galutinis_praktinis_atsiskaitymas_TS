@@ -46,7 +46,6 @@ function AuthProvider({ children }) {
 
   function logout(userObj) {
     setUser(null);
-    toast.error('Bye Bye');
   }
 
   const authCtx = {

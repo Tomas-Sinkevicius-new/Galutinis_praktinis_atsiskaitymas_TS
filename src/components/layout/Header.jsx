@@ -11,7 +11,7 @@ function Header() {
     <header>
       <div className='container'>
         <Link className='logo' to={'/'}>
-          Fin<span>all</span>
+          Fin<span>al</span>
         </Link>
         <nav>
           <NavLink className='navBar' to={'/'}>
@@ -23,7 +23,7 @@ function Header() {
           <NavLink className='navBar' to={'/register'}>
             Register
           </NavLink>
-          {!isLoggedIn && (
+          {isLoggedIn && (
             <NavLink className='navBar' to={'/login'}>
               <Logout />
             </NavLink>
