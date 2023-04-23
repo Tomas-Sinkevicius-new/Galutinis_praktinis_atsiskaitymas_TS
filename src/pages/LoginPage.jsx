@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/firebase';
 import { toast } from 'react-hot-toast';
 import LoginForm from '../components/auth/LoginForm';
-import '../pages/loginPage.scss';
-import Loader from '../components/loader/Loader';
 import { useAuthCtx } from '../store/AuthProvider';
 
 function LoginPage() {
@@ -38,7 +36,7 @@ function LoginPage() {
   }
 
   function loginWithGoole() {
-    const loginGooglePromise = signInWithPopup(auth, new GoogleAuthProvider())
+    signInWithPopup(auth, new GoogleAuthProvider())
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -64,12 +62,7 @@ function LoginPage() {
 
   return (
     <div className='container'>
-      <Loader />
-      <LoginForm
-        // onLogininWithFB={loginWithFb}
-        onLoginWithGoogle={loginWithGoole}
-        onLogin={login}
-      />
+      <LoginForm onLoginWithGoogle={loginWithGoole} onLogin={login} />
     </div>
   );
 }

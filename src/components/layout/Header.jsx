@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.scss';
+import './headerAndFooter.scss';
 import { useAuthCtx } from '../../store/AuthProvider';
 import { Link, NavLink } from 'react-router-dom';
 import Logout from '../auth/Logout';
@@ -11,7 +11,10 @@ function Header() {
     <header className='header'>
       <div className='containerHeader'>
         <Link className='logo' to={'/'}>
-          Fin<span>al</span>
+          Shops
+          <span>
+            <i class='fa fa-shopping-cart' aria-hidden='true'></i>
+          </span>
         </Link>
         <nav>
           {!isLoggedIn && (

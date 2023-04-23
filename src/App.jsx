@@ -9,6 +9,7 @@ import { useAuthCtx } from './store/AuthProvider';
 import AddShop from './pages/AddShop';
 import SingleShop from './pages/SingleShop';
 import Loader from './components/loader/Loader';
+import Footer from './components/layout/Footer';
 
 function App() {
   const { isLoggedIn } = useAuthCtx();
@@ -40,6 +41,7 @@ function App() {
           element={isLoggedIn ? <SingleShop /> : <Navigate to={'/login'} />}
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

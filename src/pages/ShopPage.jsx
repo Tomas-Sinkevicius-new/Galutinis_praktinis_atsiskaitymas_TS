@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import SingleShopItem from '../components/shop/SingleShopItem';
 import Loader from '../components/loader/Loader';
 import { useAuthCtx } from '../store/AuthProvider';
-import '../components/shop/singleShopItem.scss';
+import './shopPage.scss';
 
 function ShopPage() {
   const { isLoading, setIsLoading } = useAuthCtx();
@@ -42,14 +42,17 @@ function ShopPage() {
       setIsLoading(false);
     }
     getSHop();
-  }, []);
+  }, [setIsLoading, setshopArr]);
 
   return (
     <div className='container'>
-      <h1>Welcome to that Shops</h1>
+      <h1 className='titleH1'>
+        Welcome to Shops
+        <i class='fa fa-shopping-cart' aria-hidden='true'></i>
+      </h1>
       <Loader show={isLoading} />
       {shopArr.length === 0 ? (
-        <p>Šiuo metu įrašū nėra</p>
+        <p className='nerIrasu'>Šiuo metu įrašū nėra</p>
       ) : (
         <ul className='display'>
           {shopArr.map((shopObj) => (

@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import './singleShopItem.scss';
+import PropTypes from 'prop-types';
 
 function SingleShopItem({ item }) {
   return (
@@ -20,5 +21,16 @@ function SingleShopItem({ item }) {
     </div>
   );
 }
+
+SingleShopItem.propTypes = {
+  //naudojam shape kadangi turim daugiau nei vieną objektą:
+  item: PropTypes.shape({
+    shopName: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    startYear: PropTypes.number.isRequired,
+    town: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default SingleShopItem;

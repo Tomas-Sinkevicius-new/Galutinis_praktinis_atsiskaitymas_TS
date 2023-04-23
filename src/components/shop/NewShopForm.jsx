@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAuthCtx } from '../../store/AuthProvider';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 
 function NewShopForm({ onNewShop }) {
   const formik = useFormik({
@@ -143,5 +143,9 @@ function NewShopForm({ onNewShop }) {
     </div>
   );
 }
+
+NewShopForm.propTypes = {
+  onNewShop: PropTypes.func.isRequired,
+};
 
 export default NewShopForm;
