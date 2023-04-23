@@ -104,7 +104,7 @@ function NewShopForm({ onNewShop }) {
           <label className='label' htmlFor='description'>
             Description:
           </label>
-          <input
+          <textarea
             className='input'
             type='textarea'
             name='description'

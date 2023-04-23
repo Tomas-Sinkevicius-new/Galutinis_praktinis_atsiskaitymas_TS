@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Logout from '../auth/Logout';
 
 function Header() {
-  const { isLoggedIn } = useAuthCtx();
+  const { isLoggedIn, user } = useAuthCtx();
 
   return (
     <header className='header'>
@@ -13,7 +13,7 @@ function Header() {
         <Link className='logo' to={'/'}>
           Shops
           <span>
-            <i class='fa fa-shopping-cart' aria-hidden='true'></i>
+            <i className='fa fa-shopping-cart' aria-hidden='true'></i>
           </span>
         </Link>
         <nav>
@@ -30,6 +30,7 @@ function Header() {
 
           {isLoggedIn && (
             <>
+              {isLoggedIn && <p className='loogedUser'>User: {user.email}</p>}
               <NavLink className='navBar' to={'/shops'}>
                 Shop
               </NavLink>

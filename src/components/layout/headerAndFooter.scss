@@ -67,3 +67,20 @@ button {
     font-size: 15px;
   }
 }
+
+.loogedUser {
+  display: inline-block;
+  top: 6.2%;
+  right: 21%;
+  margin: 0;
+  font-size: 16px;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .containerHeader {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

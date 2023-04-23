@@ -12,43 +12,52 @@ function ShopPage() {
   const [shopArr, setshopArr] = useState([]);
 
   //paimam shop item is FireBase
+  let initialized = false;
 
   useEffect(() => {
-    async function getSHop() {
-      setIsLoading(true);
-      let docsPromise;
-      try {
-        //pagal title isrikiuoti
-        let q = query(collection(db, 'shops'), orderBy('shopName'));
-        //gauti tik james@bond.com postus
-        // q = query(
-        //   collection(db, 'posts'),
-        //   where('author', '==', 'james@bond.com'),
-        // );
-        docsPromise = getDocs(q);
-        const querySnapshot = await docsPromise;
-        const tempShop = [];
-        querySnapshot.forEach((doc) => {
-          tempShop.push({ uid: doc.id, ...doc.data() });
-        });
-        console.log('tempShop ===', tempShop);
-        setshopArr(tempShop);
-        toast.success('Got Shops');
-      } catch (error) {
-        console.warn('getShop', error);
-        toast.error('Couldnt get Shops');
+    //apribojam useStrict is react dome, kad du kart nemestu lenteles
+    if (!initialized) {
+      initialized = true;
+
+      async function getSHop() {
+        setIsLoading(true);
+        let docsPromise;
+        try {
+          // debugger;
+          //pagal title isrikiuoti
+          let q = query(collection(db, 'shops'), orderBy('shopName'));
+          //gauti tik james@bond.com postus
+          // q = query(
+          //   collection(db, 'posts'),
+          //   where('author', '==', 'james@bond.com'),
+          // );
+          docsPromise = getDocs(q);
+          const querySnapshot = await docsPromise;
+          const tempShop = [];
+          querySnapshot.forEach((doc) => {
+            tempShop.push({ uid: doc.id, ...doc.data() });
+          });
+
+          console.log('tempShop ===', tempShop);
+          setshopArr(tempShop);
+          toast.success('Got Shops');
+        } catch (error) {
+          console.warn('getShop', error);
+          toast.error('Couldnt get Shops');
+        }
+
+        setIsLoading(false);
       }
 
-      setIsLoading(false);
+      getSHop();
     }
-    getSHop();
-  }, [setIsLoading, setshopArr]);
+  }, []);
 
   return (
     <div className='container'>
       <h1 className='titleH1'>
         Welcome to Shops
-        <i class='fa fa-shopping-cart' aria-hidden='true'></i>
+        <i className='fa fa-shopping-cart' aria-hidden='true'></i>
       </h1>
       <Loader show={isLoading} />
       {shopArr.length === 0 ? (

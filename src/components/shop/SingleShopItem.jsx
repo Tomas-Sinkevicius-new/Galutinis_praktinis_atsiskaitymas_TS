@@ -7,7 +7,7 @@ function SingleShopItem({ item }) {
   return (
     <div className='cardContainer'>
       <div className='card'>
-        <div class='card-front'>
+        <div className='card-front'>
           <h3 className='title'> {item.shopName} </h3>
           <p className='p2'> {item.description} </p>
         </div>

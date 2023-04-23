@@ -1,7 +1,7 @@
 import './reset.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/layout/Header';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ShopPage from './pages/ShopPage';
@@ -13,6 +13,7 @@ import Footer from './components/layout/Footer';
 
 function App() {
   const { isLoggedIn } = useAuthCtx();
+
   return (
     <div>
       <Header />
