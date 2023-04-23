@@ -8,6 +8,7 @@ import ShopPage from './pages/ShopPage';
 import { useAuthCtx } from './store/AuthProvider';
 import AddShop from './pages/AddShop';
 import SingleShop from './pages/SingleShop';
+import Loader from './components/loader/Loader';
 
 function App() {
   const { isLoggedIn } = useAuthCtx();
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Header />
       <Toaster />
+      <Loader />
       <Routes>
         <Route path='/' element={isLoggedIn ? <ShopPage /> : <LoginPage />} />
         <Route

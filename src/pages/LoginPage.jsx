@@ -10,11 +10,15 @@ import { toast } from 'react-hot-toast';
 import LoginForm from '../components/auth/LoginForm';
 import '../pages/loginPage.scss';
 import Loader from '../components/loader/Loader';
+import { useAuthCtx } from '../store/AuthProvider';
 
 function LoginPage() {
   const navigate = useNavigate();
+  const { setIsLoading } = useAuthCtx();
 
   function login({ email, password }) {
+    setIsLoading(true);
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -56,11 +60,6 @@ function LoginPage() {
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
-    toast.promise(loginGooglePromise, {
-      loading: 'Loading',
-      success: 'Got the data',
-      error: 'Error when fetching',
-    });
   }
 
   return (

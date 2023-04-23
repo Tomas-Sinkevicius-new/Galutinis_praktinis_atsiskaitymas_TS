@@ -4,19 +4,22 @@ import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { toast } from 'react-hot-toast';
 import SingleShopItem from '../components/shop/SingleShopItem';
 import Loader from '../components/loader/Loader';
+import { useAuthCtx } from '../store/AuthProvider';
+import '../components/shop/singleShopItem.scss';
 
 function ShopPage() {
+  const { isLoading, setIsLoading } = useAuthCtx();
   const [shopArr, setshopArr] = useState([]);
 
   //paimam shop item is FireBase
 
   useEffect(() => {
     async function getSHop() {
-      //norim gauti postus
+      setIsLoading(true);
       let docsPromise;
       try {
         //pagal title isrikiuoti
-        let q = query(collection(db, 'shop'), orderBy('title'));
+        let q = query(collection(db, 'shops'), orderBy('shopName'));
         //gauti tik james@bond.com postus
         // q = query(
         //   collection(db, 'posts'),
@@ -26,33 +29,34 @@ function ShopPage() {
         const querySnapshot = await docsPromise;
         const tempShop = [];
         querySnapshot.forEach((doc) => {
-          // console.log(`${doc.id} => ${doc.data()}`);
-          // console.log('{doc.data() ===', doc.data());
           tempShop.push({ uid: doc.id, ...doc.data() });
         });
         console.log('tempShop ===', tempShop);
         setshopArr(tempShop);
+        toast.success('Got Shops');
       } catch (error) {
-        console.warn('getSHop', error.code, error.message);
+        console.warn('getShop', error);
+        toast.error('Couldnt get Shops');
       }
-      toast.promise(docsPromise, {
-        loading: 'Loading',
-        success: 'Got the posts',
-        error: 'klaida ivyko?',
-      });
+
+      setIsLoading(false);
     }
     getSHop();
   }, []);
 
   return (
     <div className='container'>
-      <h1>Welcome to that Shop</h1>
-      <Loader />
-      <ul>
-        {shopArr.map((shopObj) => (
-          <SingleShopItem key={shopObj.uid} item={shopObj} />
-        ))}
-      </ul>
+      <h1>Welcome to that Shops</h1>
+      <Loader show={isLoading} />
+      {shopArr.length === 0 ? (
+        <p>Šiuo metu įrašū nėra</p>
+      ) : (
+        <ul className='display'>
+          {shopArr.map((shopObj) => (
+            <SingleShopItem key={shopObj.uid} item={shopObj} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
