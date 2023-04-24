@@ -6,14 +6,14 @@ import { toast } from 'react-hot-toast';
 import '../auth/logout.scss';
 
 function Logout() {
-  const { isLoggedIn } = useAuthCtx();
+  const { isLoggedIn, user } = useAuthCtx();
 
   function logoutFN() {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
         // logout();
-        toast('Good Job! BYE!', {
+        toast(`Good Job! BYE! ${user.email}`, {
           icon: '😭',
         });
       })

@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase';
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext({
   user: {},
@@ -20,7 +21,7 @@ function AuthProvider({ children }) {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
+        // const uid = user.uid;
         // ...
         // console.log('prisijungimas ===', user.email);
         setUser(user);
@@ -46,6 +47,15 @@ function AuthProvider({ children }) {
     <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>
   );
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+AuthContext.propTypes = {
+  user: PropTypes.object,
+  isLoading: PropTypes.bool,
+};
 
 export default AuthProvider;
 

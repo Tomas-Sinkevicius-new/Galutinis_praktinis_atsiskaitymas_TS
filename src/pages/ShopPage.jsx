@@ -6,6 +6,7 @@ import SingleShopItem from '../components/shop/SingleShopItem';
 import Loader from '../components/loader/Loader';
 import { useAuthCtx } from '../store/AuthProvider';
 import './shopPage.scss';
+import PropTypes from 'prop-types';
 
 function ShopPage() {
   const { isLoading, setIsLoading } = useAuthCtx();
@@ -66,5 +67,11 @@ function ShopPage() {
     </div>
   );
 }
+
+ShopPage.propTypes = {
+  isLoading: PropTypes.bool,
+  setIsLoading: PropTypes.func,
+  shopArr: PropTypes.array,
+};
 
 export default ShopPage;

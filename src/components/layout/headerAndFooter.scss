@@ -23,11 +23,11 @@ header {
   }
 
   .navBar {
-    padding: 20px 26px;
+    padding: 18px 24px;
     display: inline-block;
     color: #ffffff;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
   }
   .navBar.active {
     text-decoration: underline;
@@ -72,9 +72,8 @@ button {
 
 .loogedUser {
   display: inline-block;
-  top: 6.2%;
-  right: 21%;
   margin: 0;
+  margin-right: 10px;
   font-size: 16px;
   color: white;
 }
