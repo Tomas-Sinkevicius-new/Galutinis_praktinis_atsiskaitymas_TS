@@ -23,14 +23,8 @@ function ShopPage() {
         setIsLoading(true);
         let docsPromise;
         try {
-          // debugger;
           //pagal title isrikiuoti
           let q = query(collection(db, 'shops'), orderBy('shopName'));
-          //gauti tik james@bond.com postus
-          // q = query(
-          //   collection(db, 'posts'),
-          //   where('author', '==', 'james@bond.com'),
-          // );
           docsPromise = getDocs(q);
           const querySnapshot = await docsPromise;
           const tempShop = [];
@@ -61,7 +55,7 @@ function ShopPage() {
       </h1>
       <Loader show={isLoading} />
       {shopArr.length === 0 ? (
-        <p className='nerIrasu'>Šiuo metu įrašū nėra</p>
+        <p className='nerIrasu'>Šiuo metu įrašų nėra</p>
       ) : (
         <ul className='display'>
           {shopArr.map((shopObj) => (

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
 import './singleShopItem.scss';
 import PropTypes from 'prop-types';
 
@@ -15,7 +14,6 @@ function SingleShopItem({ item }) {
           <img className='img2' src={item.imageUrl} alt='img' />
           <p className='p'>Year: {item.startYear} </p>
           <h4 className='h4'>Town: {item.town} </h4>
-          {/* <NavLink to={`/shops/&{item.uid}`}></NavLink> */}
         </div>
       </div>
     </div>

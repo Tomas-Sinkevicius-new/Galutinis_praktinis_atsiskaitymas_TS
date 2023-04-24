@@ -7,5 +7,7 @@ export default defineConfig({
   plugins: [react(), eslint()],
   server: {
     port: 3000,
+    // jeigu norim kad ant tel veiktu turi but tas pats WIFI ir veiks paskiau network suvedus
+    // host: true,
   },
 });

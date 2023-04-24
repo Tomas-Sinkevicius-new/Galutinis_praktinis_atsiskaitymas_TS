@@ -5,7 +5,7 @@ import {
 } from 'firebase/auth';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase/firebase';
+import { auth, googleProvider } from '../firebase/firebase';
 import { toast } from 'react-hot-toast';
 import LoginForm from '../components/auth/LoginForm';
 import { useAuthCtx } from '../store/AuthProvider';
@@ -24,7 +24,8 @@ function LoginPage() {
         console.log('user ===', user);
         //naviguojam i Profile
         navigate('/shops');
-        toast.success('Login successful');
+        toast.success(`Nice to Meet ya: ${user.email}`);
+
         // ...
       })
       .catch((error) => {
@@ -36,7 +37,7 @@ function LoginPage() {
   }
 
   function loginWithGoole() {
-    signInWithPopup(auth, new GoogleAuthProvider())
+    signInWithPopup(auth, googleProvider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);

@@ -41,6 +41,6 @@
 1. `npm install formik yup`
 2. yup importas `import * as Yup from 'yup';` kad nepamirst
 
-## nepamir6tam prop-types
+## nepamirštam prop-types
 
 1. `npm install prop-types`

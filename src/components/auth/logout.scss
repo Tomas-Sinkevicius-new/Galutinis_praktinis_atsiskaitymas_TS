@@ -23,3 +23,15 @@
   outline: none;
   color: #ffc1d8;
 }
+
+@media screen and (max-width: 800px) {
+  .logoutBtn {
+    display: flex;
+    align-self: flex-end;
+    margin: 0;
+    flex-direction: column-reverse;
+    top: 5%;
+    position: absolute;
+    left: 65%;
+  }
+}

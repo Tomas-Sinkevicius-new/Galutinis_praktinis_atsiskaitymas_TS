@@ -15,18 +15,19 @@ header {
     justify-content: space-between;
   }
   .logo {
-    font-size: 4rem;
+    font-size: 64px;
     color: #ffffff;
     display: inline-block;
-    padding: 1.2rem 1.6rem;
+    padding: 20px 26px;
     text-decoration: none;
   }
 
   .navBar {
-    padding: 1.2rem 1.6rem;
+    padding: 20px 26px;
     display: inline-block;
     color: #ffffff;
     text-decoration: none;
+    font-size: 24px;
   }
   .navBar.active {
     text-decoration: underline;
@@ -35,11 +36,12 @@ header {
   .navBar:hover {
     transition: all 0.2s;
     background-color: #ffffff;
+    border-radius: 15px;
     color: #e43071;
   }
 }
 span {
-  font-size: 4rem;
+  font-size: 54px;
   color: #ffc1d8;
 }
 button {
@@ -82,5 +84,9 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  header .logo {
+    align-self: flex-start;
   }
 }

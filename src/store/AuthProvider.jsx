@@ -1,14 +1,10 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase';
-import { toast } from 'react-hot-toast';
 
 const AuthContext = createContext({
   user: {},
   isLoading: false,
-  login() {},
-  logout() {},
-  register() {},
 });
 
 //pakeiciam authcontext pavadinima 'Components'
@@ -26,12 +22,12 @@ function AuthProvider({ children }) {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         // ...
-        console.log('prisijungimas ===', user.email);
+        // console.log('prisijungimas ===', user.email);
         setUser(user);
       } else {
         // User is signed out
         // ...
-        console.log('logout User');
+        // console.log('logout User');
         setUser(null);
       }
     });
@@ -39,22 +35,11 @@ function AuthProvider({ children }) {
 
   const isLoggedIn = !!user;
 
-  function login(userObj) {
-    setUser(userObj);
-    toast.success('Welcome');
-  }
-
-  function logout(userObj) {
-    setUser(null);
-  }
-
   const authCtx = {
     user,
     isLoading,
     setIsLoading,
     isLoggedIn,
-    login,
-    logout,
   };
 
   return (
