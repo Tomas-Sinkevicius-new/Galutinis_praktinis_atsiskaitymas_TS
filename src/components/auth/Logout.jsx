@@ -11,16 +11,15 @@ function Logout() {
   function logoutFN() {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
-        // logout();
         toast(`Good Job! BYE! ${user.email}`, {
           icon: '😭',
         });
       })
       .catch((error) => {
-        // An error happened.
+        if (!user) {
+          toast.error('Something went wrong...');
+        }
       });
-    // toast.error('Something went wrong...');
   }
 
   return !isLoggedIn ? null : (

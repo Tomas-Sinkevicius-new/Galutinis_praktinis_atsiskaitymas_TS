@@ -9,14 +9,13 @@ function AddShop() {
   const navigate = useNavigate();
   async function createShop(onNewShop) {
     try {
-      const docRef = await addDoc(collection(db, 'shops'), onNewShop);
-      console.log('Document written with ID: ', docRef.id);
+      await addDoc(collection(db, 'shops'), onNewShop);
+
       navigate('/shops');
       toast('Good Job! BYE!', {
         icon: '✨',
       });
     } catch (e) {
-      console.error('Error adding document: ', e);
       toast('SOMETHING WRONG!', {
         icon: '🤯',
       });

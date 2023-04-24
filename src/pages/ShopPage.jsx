@@ -9,10 +9,9 @@ import './shopPage.scss';
 import PropTypes from 'prop-types';
 
 function ShopPage() {
-  const { isLoading, setIsLoading } = useAuthCtx();
+  const { isLoading, setIsLoading, user } = useAuthCtx();
   const [shopArr, setshopArr] = useState([]);
 
-  //paimam shop item is FireBase
   let initialized = false;
 
   useEffect(() => {
@@ -24,23 +23,26 @@ function ShopPage() {
         setIsLoading(true);
         let docsPromise;
         try {
-          //pagal title isrikiuoti
-          let q = query(collection(db, 'shops'), orderBy('shopName'));
-          docsPromise = getDocs(q);
-          const querySnapshot = await docsPromise;
-          const tempShop = [];
-          querySnapshot.forEach((doc) => {
-            tempShop.push({ uid: doc.id, ...doc.data() });
-          });
-
-          // console.log('tempShop ===', tempShop);
-          setshopArr(tempShop);
-          toast.success('Got Shops');
+          if (user && user.uid) {
+            let q = query(collection(db, 'shops'), orderBy('shopName'));
+            docsPromise = getDocs(q);
+            const querySnapshot = await docsPromise;
+            const tempShop = [];
+            querySnapshot.forEach((doc) => {
+              tempShop.push({ uid: doc.id, ...doc.data() });
+            });
+            setshopArr(tempShop);
+            toast.success('Got Shops');
+          } else {
+            return;
+          }
         } catch (error) {
-          console.warn('getShop', error);
-          toast.error('Couldnt get Shops');
+          if (!docsPromise && user && user.uid) {
+            toast.error('Didnt get shops');
+          } else if (!docsPromise && (!user || !user.uid)) {
+            return;
+          }
         }
-
         setIsLoading(false);
       }
 
@@ -71,7 +73,21 @@ function ShopPage() {
 ShopPage.propTypes = {
   isLoading: PropTypes.bool,
   setIsLoading: PropTypes.func,
-  shopArr: PropTypes.array,
+  shopArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      uid: PropTypes.string,
+      shopName: PropTypes.string,
+      shopAddress: PropTypes.string,
+      shopPhone: PropTypes.string,
+      shopEmail: PropTypes.string,
+    })
+  ),
+  user: PropTypes.shape({
+    uid: PropTypes.string,
+    email: PropTypes.string,
+    displayName: PropTypes.string,
+    photoURL: PropTypes.string,
+  }),
 };
 
 export default ShopPage;

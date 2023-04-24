@@ -17,7 +17,6 @@ function RegisterForm({ onRegister }) {
         .required('required'),
     }),
     onSubmit: (values) => {
-      console.log(values);
       onRegister(values);
     },
   });

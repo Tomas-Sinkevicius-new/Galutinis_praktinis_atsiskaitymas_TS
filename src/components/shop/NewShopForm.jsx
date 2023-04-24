@@ -23,13 +23,7 @@ function NewShopForm({ onNewShop }) {
         .min(1970, 'Mažiausiai 1970 metai')
         .max(2022, 'Maksimali reikšmė - 2022 metai')
         .required('Privalomas laukas')
-        .typeError('Privalo būti skaičius')
-        //padarom kad tikrai būtų laukas lygus 4 simboliams
-        .test(
-          'len',
-          'Turi būti 4 skaitmenys',
-          (val) => val.toString().length === 4
-        ),
+        .typeError('Privalo būti skaičius'),
       description: Yup.string()
         .min(6, 'Mažiausiai 6 simboliai')
         .required('Privalomas laukas'),
@@ -38,7 +32,6 @@ function NewShopForm({ onNewShop }) {
         .required('Privalomas laukas'),
     }),
     onSubmit: (values) => {
-      console.log(values);
       onNewShop(values);
     },
   });

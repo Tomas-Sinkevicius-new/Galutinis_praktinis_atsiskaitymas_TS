@@ -8,7 +8,6 @@ const AuthContext = createContext({
   isLoading: false,
 });
 
-//pakeiciam authcontext pavadinima 'Components'
 AuthContext.displayName = 'Autentifikacija';
 
 function AuthProvider({ children }) {
@@ -16,19 +15,10 @@ function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    //vartotojo prisijungimas:
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        // const uid = user.uid;
-        // ...
-        // console.log('prisijungimas ===', user.email);
         setUser(user);
       } else {
-        // User is signed out
-        // ...
-        // console.log('logout User');
         setUser(null);
       }
     });

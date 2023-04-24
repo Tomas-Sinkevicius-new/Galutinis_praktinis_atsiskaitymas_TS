@@ -8,20 +8,9 @@ function RegisterPage() {
   function register({ email, password }) {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log('user ===', user);
         toast.success('WP MATE, You REGISTERED');
-        // ...
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('errorCode ===', errorCode);
-        console.log('errorMessage ===', errorMessage);
-        toast.error('Something wrong...');
-        // ..
-      });
+      .catch((error) => {});
   }
 
   return (
