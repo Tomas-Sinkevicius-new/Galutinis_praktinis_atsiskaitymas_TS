@@ -43,8 +43,8 @@ function LoginPage() {
         // const credential = GoogleAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
         // The signed-in user info.
-        const user = result.user;
-        console.log('user ===', user);
+        // const user = result.user;
+        // console.log('user ===', user);
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })

@@ -33,7 +33,7 @@ function ShopPage() {
             tempShop.push({ uid: doc.id, ...doc.data() });
           });
 
-          console.log('tempShop ===', tempShop);
+          // console.log('tempShop ===', tempShop);
           setshopArr(tempShop);
           toast.success('Got Shops');
         } catch (error) {

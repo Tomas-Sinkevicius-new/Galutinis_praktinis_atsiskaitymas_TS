@@ -18,7 +18,7 @@ function LoginForm({ onLogin, onLoginWithGoogle }) {
         .required('required'),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
       onLogin(values);
     },
   });
