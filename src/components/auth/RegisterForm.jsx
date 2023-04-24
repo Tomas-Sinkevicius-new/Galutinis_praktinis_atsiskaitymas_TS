@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import './loginFormRegister.scss';
+import PropTypes from 'prop-types';
 
 function RegisterForm({ onRegister }) {
   const formik = useFormik({
@@ -68,5 +69,9 @@ function RegisterForm({ onRegister }) {
     </div>
   );
 }
+
+RegisterForm.propTypes = {
+  onRegister: PropTypes.func.isRequired,
+};
 
 export default RegisterForm;

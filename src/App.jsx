@@ -1,15 +1,15 @@
 import './reset.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/layout/Header';
-import { Toaster, toast } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ShopPage from './pages/ShopPage';
 import { useAuthCtx } from './store/AuthProvider';
 import AddShop from './pages/AddShop';
-import SingleShop from './pages/SingleShop';
 import Loader from './components/loader/Loader';
 import Footer from './components/layout/Footer';
+import NotFound from './pages/NotFound';
 
 function App() {
   const { isLoggedIn } = useAuthCtx();
@@ -37,10 +37,7 @@ function App() {
           path='/shops/new'
           element={isLoggedIn ? <AddShop /> : <Navigate to={'/login'} />}
         />
-        <Route
-          path='/shops/:shopsUid'
-          element={isLoggedIn ? <SingleShop /> : <Navigate to={'/login'} />}
-        />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

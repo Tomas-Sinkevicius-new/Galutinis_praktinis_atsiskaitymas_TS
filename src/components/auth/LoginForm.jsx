@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import * as Yup from 'yup';
 import './loginFormRegister.scss';
+import PropTypes from 'prop-types';
 
 function LoginForm({ onLogin, onLoginWithGoogle }) {
   const formik = useFormik({
@@ -79,5 +80,10 @@ function LoginForm({ onLogin, onLoginWithGoogle }) {
     </div>
   );
 }
+
+LoginForm.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+  onLoginWithGoogle: PropTypes.func.isRequired,
+};
 
 export default LoginForm;
