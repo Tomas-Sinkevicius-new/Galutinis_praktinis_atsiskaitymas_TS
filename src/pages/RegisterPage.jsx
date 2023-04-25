@@ -10,7 +10,9 @@ function RegisterPage() {
       .then((userCredential) => {
         toast.success('WP MATE, You REGISTERED');
       })
-      .catch((error) => {});
+      .catch((error) => {
+        toast.error('Toks user Jau yra');
+      });
   }
 
   return (
