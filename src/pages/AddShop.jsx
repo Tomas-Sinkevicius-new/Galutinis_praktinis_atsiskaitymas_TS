@@ -12,7 +12,7 @@ function AddShop() {
       await addDoc(collection(db, 'shops'), onNewShop);
 
       navigate('/shops');
-      toast('Good Job! BYE!', {
+      toast('Good Job! Shop added!', {
         icon: '✨',
       });
     } catch (e) {
