@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 function LoginForm({ onLogin, onLoginWithGoogle }) {
   const formik = useFormik({
     initialValues: {
-      email: 'test@test.lt',
-      password: '123456',
+      email: '',
+      password: '',
     },
     validationSchema: Yup.object({
       email: Yup.string().email('Invalid email address').required('required'),
